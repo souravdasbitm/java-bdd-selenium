@@ -22,7 +22,7 @@ public class FileReaderManager {
 	}
 
 
-	public static ConfigFileReader getConfigFileReader() {
+	public  ConfigFileReader getConfigFileReader() {
 		return (configFileReader == null) ? configFileReader = new ConfigFileReader() : configFileReader;
 	}
 
