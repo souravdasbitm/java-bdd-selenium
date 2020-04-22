@@ -1,5 +1,7 @@
 package manager;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -60,6 +62,12 @@ public class WebDriverManager {
 			break;
 
 		}
+		if (FileReaderManager.getInstance().getConfigFileReader().getBrowserWindowSize())
+			driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(
+				FileReaderManager.getInstance().getConfigFileReader().getImplicitlyWait(), TimeUnit.SECONDS);
+		if (FileReaderManager.getInstance().getConfigFileReader().getBrowserDeleteCookies())
+			driver.manage().deleteAllCookies();
 		return driver;
 
 	}
