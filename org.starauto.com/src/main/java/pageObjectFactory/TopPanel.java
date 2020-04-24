@@ -18,12 +18,12 @@ public class TopPanel {
 
 	@FindBy(how = How.CSS, using = ".button-search")
 	private WebElement search_btn;
-	
+
 	// locators
 
 	@FindBy(how = How.CSS, using = ".login")
 	private WebElement login_btn;
-	
+
 	@FindBy(how = How.CSS, using = ".navigation_page")
 	WebElement navigation_str;
 
@@ -33,7 +33,6 @@ public class TopPanel {
 		login_btn.click();
 	}
 
-
 	public void input_search(String text) {
 		search_input.sendKeys(text);
 	}
@@ -41,7 +40,7 @@ public class TopPanel {
 	public void click_search_btn() {
 		search_btn.click();
 	}
-	
+
 	public String navigation_text(String text) {
 		return navigation_str.getText();
 	}
