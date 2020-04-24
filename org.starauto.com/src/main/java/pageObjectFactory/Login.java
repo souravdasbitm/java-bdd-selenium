@@ -5,15 +5,14 @@ import org.openqa.selenium.WebElement;
 
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 
-public class Login {
+public class Login extends TopPanel {
 
 	WebDriver driver;
 
 	public Login(WebDriver driver) {
 
-		PageFactory.initElements(driver, this);
+		super(driver);
 
 	}
 

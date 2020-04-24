@@ -1,45 +1,17 @@
 package pageObjectFactory;
 
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
-
-public class Home {
+public class Home extends TopPanel {
 
 	WebDriver driver;
 
 	public Home(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
+		super(driver);
 	}
 
-	// locators
 
-	@FindBy(how = How.CSS, using = ".login")
-	private WebElement login_btn;
-
-	@FindBy(how = How.CSS, using = ".search_query")
-	private WebElement search_input;
-
-	@FindBy(how = How.CSS, using = ".button-search")
-	private WebElement search_btn;
-
-	// action method
-
-	public void click_login() {
-		login_btn.click();
-	}
-
-	public void input_search(String text) {
-		search_input.sendKeys(text);
-	}
-
-	private void click_search_btn() {
-		search_btn.click();
-	}
 
 //	public static void main(String[] args) {
 //
@@ -59,5 +31,4 @@ public class Home {
 //		// home.click_login();
 //
 //	}
-
 }
