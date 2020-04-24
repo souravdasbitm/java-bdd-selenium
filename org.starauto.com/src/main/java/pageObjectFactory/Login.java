@@ -18,7 +18,7 @@ public class Login {
 	}
 
 	// locators
-	
+
 	@FindBy(how = How.CSS, using = "input#email_create")
 	private WebElement email_create;
 
@@ -36,9 +36,9 @@ public class Login {
 
 	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Forgot your password?')]")
 	private WebElement forgot_passwd;
-	
+
 	// action method
-	
+
 	public void register_email(String text) {
 		email_create.clear();
 		email_create.sendKeys(text);
