@@ -56,8 +56,10 @@ public class WebDriverManager {
 			driver = new InternetExplorerDriver();
 			break;
 		case CHROME:
+			
 			System.setProperty(CHROME_DRIVER_PROPERTY,
 					FileReaderManager.getInstance().getConfigFileReader().getDriverPath());
+			System.setProperty("webdriver.chrome.silentOutput", "true");
 			driver = new ChromeDriver();
 			break;
 
@@ -70,6 +72,13 @@ public class WebDriverManager {
 			driver.manage().deleteAllCookies();
 		return driver;
 
+	}
+	
+	public void quitDriver() {
+		driver.quit();		
+	}
+	public void closeDriver() {
+		driver.close();
 	}
 
 //	public static void main(String[] args) {

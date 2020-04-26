@@ -6,10 +6,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import manager.FileReaderManager;
+
 public class TopPanel {
 	WebDriver driver;
 
 	public TopPanel(WebDriver driver) {
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 
@@ -28,6 +31,10 @@ public class TopPanel {
 	WebElement navigation_str;
 
 	// action method
+
+	public void navigateTo_HomePage() {
+		driver.get(FileReaderManager.getInstance().getConfigFileReader().getApplicationUrl());
+	}
 
 	public void click_login() {
 		login_btn.click();

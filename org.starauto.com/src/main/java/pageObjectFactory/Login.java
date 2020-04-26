@@ -1,10 +1,14 @@
 package pageObjectFactory;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+
+import manager.FileReaderManager;
 
 public class Login extends TopPanel {
 
@@ -35,22 +39,26 @@ public class Login extends TopPanel {
 
 	@FindBy(how = How.XPATH, using = "//a[contains(text(),'Forgot your password?')]")
 	private WebElement forgot_passwd;
+	
+	@FindBy(how = How.CSS, using = "h1.page-heading")
+	private WebElement heading_text;
+	
 
 	// action method
 
-	public void register_email(String text) {
+	public void register_email(String register_email) {
 		email_create.clear();
-		email_create.sendKeys(text);
+		email_create.sendKeys(register_email);
 	}
 
-	public void login_email(String text) {
+	public void login_email(String username) {
 		email.clear();
-		email.sendKeys(text);
+		email.sendKeys(username);
 	}
 
-	public void login_passwd(String text) {
-		email.clear();
-		email.sendKeys(text);
+	public void login_passwd(String password) {
+		passwd.clear();
+		passwd.sendKeys(password);
 	}
 
 	public void forgot_passwd() {
@@ -68,9 +76,13 @@ public class Login extends TopPanel {
 
 		}
 	}
+	
+	public String heading_page() {
+		return heading_text.getText();
+	}
 
 //	public static void main(String[] args) {
-	// TODO Auto-generated method stub
+////	 TODO Auto-generated method stub
 //		System.setProperty("webdriver.chrome.driver",
 //				FileReaderManager.getInstance().getConfigFileReader().getDriverPath());
 //		System.setProperty("webdriver.chrome.silentOutput", "true");
@@ -78,11 +90,14 @@ public class Login extends TopPanel {
 //
 //		Login login = new Login(driver);
 //		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-//		driver.get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
+//		driver.get("http://automationpractice.com");
 //
 //		// driver.findElement(By.cssSelector("input#email_create")).sendKeys("abc.com");
-//
-//		login.register_email("abc.com");
+//		login.click_login();
+//		login.login_email("souravdasbitm@gmail.com");
+//		login.login_passwd("Orga1234!");
+//		login.submit_btn("login");
+//		System.out.println(login.heading_page().toLowerCase());
 //
 //	}
 

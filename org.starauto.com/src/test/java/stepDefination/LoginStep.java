@@ -1,47 +1,44 @@
 package stepDefination;
 
-import cucumber.api.java.en.Given;
+import context.TestContext;
+
 import cucumber.api.java.en.When;
-import cucumber.api.java.en.Then;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
+
+import pageObjectFactory.Login;
+
+import org.junit.Assert;
 
 public class LoginStep {
+	TestContext testContext;
+	Login login;
 
-	@Given("^user is on Home Page$")
-	public void user_is_on_Home_Page() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	public LoginStep(TestContext context) {
+		testContext = context;
+		login = testContext.getPageObjectManager().getLogin();
 	}
 
 	@When("^user clicks onto login option$")
 	public void user_clicks_onto_login_option() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		login.click_login();
 	}
 
-	@And("^enters the username$")
-	public void enters_the_username() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
-	}
-
-	@And("^enters the password$")
-	public void enters_the_password() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	@When("^enters the username \"(.*)\" and password \"(.*)\"$")
+	public void enters_the_username_password(String user, String passwd) throws Throwable {
+		login.login_email(user);
+		login.login_passwd(passwd);
 	}
 
 	@And("^clicks onto the login$")
 	public void clicks_onto_the_login() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+		login.submit_btn("login");
 	}
 
 	@Then("^user is able to login$")
-	public void user_is_able_to_login() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	public void user_is_able_to_login() throws Throwable {		
+		Assert.assertEquals("my account",login.heading_page().toLowerCase());
+		
 	}
 
 }
