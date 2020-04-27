@@ -1,0 +1,130 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-04-27T19:21:42.095Z",
+        "before": [
+          {
+            "result": {
+              "duration": 6528032200,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 13,
+        "name": "Customer logs into the system",
+        "description": "",
+        "id": "login;customer-logs-into-the-system;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 1923200,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterScenario(Scenario)"
+            }
+          },
+          {
+            "result": {
+              "duration": 797491300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hooks.afterSteps()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 7977012400,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user is on the home page",
+            "match": {
+              "location": "HomeStep.user_is_on_the_home_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2266600500,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "user clicks onto login option",
+            "match": {
+              "location": "LoginStep.user_clicks_onto_login_option()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2369049700,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "enters the username \"souravdasbitm@gmail.com\" and password \"Orga1234!\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "souravdasbitm@gmail.com",
+                  "offset": 21
+                },
+                {
+                  "val": "Orga1234!",
+                  "offset": 60
+                }
+              ],
+              "location": "LoginStep.enters_the_username_password(String,String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1770871900,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "clicks onto the login",
+            "match": {
+              "location": "LoginStep.clicks_onto_the_login()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 59005200,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "user is able to login",
+            "match": {
+              "location": "LoginStep.user_is_able_to_login()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@severity\u003dblocker"
+          }
+        ]
+      }
+    ],
+    "name": "Login",
+    "description": "\tDescription: The purpose of this feature is to test login.",
+    "id": "login",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/login.feature",
+    "tags": []
+  }
+]
