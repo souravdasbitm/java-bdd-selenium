@@ -63,6 +63,15 @@ public class ConfigFileReader {
 			throw new RuntimeException(
 					"Application Url not specified in the Configuration.properties file for the Key:webUrl");
 	}
+	
+	public String getRemoteHubURL() {
+		String remoteHubURL = properties.getProperty("remoteHubURL");
+		if (remoteHubURL != null)
+			return remoteHubURL;
+		else
+			throw new RuntimeException(
+					"Application Url not specified in the Configuration.properties file for the Key:remoteHubURL");
+	}
 
 	public String getServiceUrl() {
 		String serviceUrl = properties.getProperty("serviceUrl");

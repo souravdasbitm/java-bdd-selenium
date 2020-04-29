@@ -18,6 +18,7 @@ public class LoginStep {
 		testContext = context;
 		login = testContext.getPageObjectManager().getLogin();
 	}
+	
 
 	@When("^user clicks onto login option$")
 	public void user_clicks_onto_login_option() throws Throwable {

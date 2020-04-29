@@ -6,7 +6,54 @@
 	<artifactId>org.starauto.com</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
-		<aspectj.version>1.8.10</aspectj.version>
+		<!-- Project -->
+		<app.name>Simply Do - Balance Projector</app.name>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java>1.8</java>
+
+		<!-- Maven -->
+		<timestamp>${maven.build.timestamp}</timestamp>
+		<maven.build.timestamp.format>yyyyMMdd'T'HHmmss'Z'</maven.build.timestamp.format>
+
+		<!-- Dependencies -->
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server -->
+		<selenium>4.0.0-alpha-1</selenium>
+		<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+		<webdrivermanager>3.6.1</webdrivermanager>
+		<!-- https://mvnrepository.com/artifact/com.paulhammant/ngwebdriver -->
+		<ngwebdriver>1.1.4</ngwebdriver>
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+		<cucumber>4.2.0</cucumber>
+		<!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
+		<assertj>3.12.2</assertj>
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
+		<slf4j>2.11.2</slf4j>
+		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports-cucumber4-adapter -->
+		<extentreports>1.0.5</extentreports>
+		<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-cucumber4-jvm -->
+		<allure.cucumber>2.12.1</allure.cucumber>
+		<!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->
+		<itextpdf>5.5.13.1</itextpdf>
+		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+		<poi>4.1.0</poi>
+		<!-- https://mvnrepository.com/artifact/com.codoid.products/fillo -->
+		<fillo>1.21</fillo>
+
+		<!-- Plugins -->
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+		<mvn.compiler>3.8.1</mvn.compiler>
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-site-plugin -->
+		<mvn.site>3.7.1</mvn.site>
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-project-info-reports-plugin -->
+		<mvn.info>3.0.0</mvn.info>
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+		<mvn.surefire>3.0.0-M3</mvn.surefire>
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+		<aspectj>1.9.4</aspectj>
+		<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-maven -->
+		<allure.mvn>2.10.0</allure.mvn>
+		<!-- https://mvnrepository.com/artifact/net.masterthought/maven-cucumber-reporting -->
+		<masterthought>4.7.0</masterthought>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -94,30 +141,33 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.20.1</version>
-				<executions>
-					<execution>
-						<id>integration-test</id>
-						<goals>
-							<goal>test</goal>
-						</goals>
-						<phase>test</phase>
-					</execution>
-				</executions>
+				<version>2.22.0</version>
 				<configuration>
+					<testFailureIgnore>true</testFailureIgnore>
+					<includes>
+						<include>**/TestRunner.java</include>
+					</includes>
 					<argLine>
-						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-						-Dcucumber.options="--plugin
-						io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm"
+						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj}/aspectjweaver-${aspectj}.jar"
 					</argLine>
+					<reportsDirectory>${project.build.directory}/test-output/${timestamp}</reportsDirectory>
 				</configuration>
 				<dependencies>
 					<dependency>
 						<groupId>org.aspectj</groupId>
 						<artifactId>aspectjweaver</artifactId>
-						<version>${aspectj.version}</version>
+						<version>${aspectj}</version>
 					</dependency>
 				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>io.qameta.allure</groupId>
+				<artifactId>allure-maven</artifactId>
+				<version>2.10.0</version>
+				<configuration>
+					<reportVersion>${allure.cucumber}</reportVersion>
+					<allureDownloadUrl>https://dl.bintray.com/qameta/maven/io/qameta/allure/allure-commandline/${allure.cucumber}/allure-commandline-${allure.cucumber}.zip</allureDownloadUrl>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
