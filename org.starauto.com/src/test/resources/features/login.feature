@@ -10,5 +10,5 @@ Scenario Outline: Customer logs into the system
 	
 	Examples: 
 		|username				 | password 	 |
-		|souravdasbitm@gmail.com | Orga1234! |
+		|souravdasbitm@gmail.com | Orga1534! |
 		

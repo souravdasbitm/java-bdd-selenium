@@ -1,5 +1,7 @@
 package stepDefination;
 
+import org.testng.Assert;
+
 import context.TestContext;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.And;
@@ -8,7 +10,6 @@ import io.cucumber.java.en.Then;
 
 import pageObjectFactory.Login;
 
-import org.junit.Assert;
 
 public class LoginStep {
 	TestContext testContext;

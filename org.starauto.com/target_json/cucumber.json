@@ -3,11 +3,11 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-04-29T07:17:06.717Z",
+        "start_timestamp": "2020-04-29T15:00:58.788Z",
         "before": [
           {
             "result": {
-              "duration": 5925591800,
+              "duration": 5864108400,
               "status": "passed"
             },
             "match": {
@@ -22,7 +22,7 @@
         "after": [
           {
             "result": {
-              "duration": 1000200,
+              "duration": 325516500,
               "status": "passed"
             },
             "match": {
@@ -31,7 +31,7 @@
           },
           {
             "result": {
-              "duration": 647257400,
+              "duration": 682571900,
               "status": "passed"
             },
             "match": {
@@ -44,7 +44,7 @@
         "steps": [
           {
             "result": {
-              "duration": 6730150200,
+              "duration": 6182047700,
               "status": "passed"
             },
             "line": 5,
@@ -56,7 +56,7 @@
           },
           {
             "result": {
-              "duration": 1568170600,
+              "duration": 1178953500,
               "status": "passed"
             },
             "line": 6,
@@ -68,11 +68,11 @@
           },
           {
             "result": {
-              "duration": 1039833900,
+              "duration": 1092483200,
               "status": "passed"
             },
             "line": 7,
-            "name": "enters the username \"souravdasbitm@gmail.com\" and password \"Orga1234!\"",
+            "name": "enters the username \"souravdasbitm@gmail.com\" and password \"Orga1534!\"",
             "match": {
               "arguments": [
                 {
@@ -80,7 +80,7 @@
                   "offset": 21
                 },
                 {
-                  "val": "Orga1234!",
+                  "val": "Orga1534!",
                   "offset": 60
                 }
               ],
@@ -90,7 +90,7 @@
           },
           {
             "result": {
-              "duration": 1569945100,
+              "duration": 1139082000,
               "status": "passed"
             },
             "line": 8,
@@ -102,8 +102,9 @@
           },
           {
             "result": {
-              "duration": 33626100,
-              "status": "passed"
+              "error_message": "java.lang.AssertionError: expected [authentication] but found [my account]\r\n\tat org.testng.Assert.fail(Assert.java:94)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:496)\r\n\tat org.testng.Assert.assertEquals(Assert.java:125)\r\n\tat org.testng.Assert.assertEquals(Assert.java:178)\r\n\tat org.testng.Assert.assertEquals(Assert.java:188)\r\n\tat stepDefination.LoginStep.user_is_able_to_login(LoginStep.java:42)\r\n\tat ✽.user is able to login(file:src/test/resources/features/login.feature:9)\r\n",
+              "duration": 30622300,
+              "status": "failed"
             },
             "line": 9,
             "name": "user is able to login",
