@@ -2,6 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="BDD Test Suite" verbose="1" parallel="tests" thread-count="2" configfailurepolicy="continue">
     <test name="Login and Update Profile Test" annotations="JDK" preserve-order="true">
+    <parameter name="browser" value="chrome" />
         <classes>
             <class name="runner.TestRunner"/>
         </classes>
